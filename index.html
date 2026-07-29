@@ -88,7 +88,7 @@ header .btn{padding:11px 20px;font-size:.85rem;}
 .badge-inline{display:inline-flex;align-items:center;gap:8px;background:rgba(6,20,18,.5);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.16);padding:8px 8px 8px 16px;border-radius:999px;font-size:.85rem;font-weight:600;}
 .badge-inline .ok{background:rgba(46,240,199,.16);color:var(--accent-2);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;}
 .trust-strip{position:relative;border-top:1px solid rgba(255,255,255,.14);background:rgba(4,14,13,.5);backdrop-filter:blur(6px);}
-.trust-strip .wrap{display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:space-between;padding:22px 28px;}
+.trust-strip .wrap{display:grid;grid-template-columns:repeat(4,auto);gap:14px 40px;justify-content:space-between;padding:22px 28px;background:rgba(4,14,13,.72);}
 .trust-strip .item{display:flex;align-items:center;gap:10px;font-size:.85rem;font-weight:600;color:rgba(255,255,255,.82);}
 .trust-strip .item svg{width:18px;height:18px;color:var(--accent-2);flex:none;}
 
@@ -196,7 +196,7 @@ footer .bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:20px
   .cred-grid div:nth-child(3){border-left:none;}
   footer .wrap{grid-template-columns:1fr;}
   section{padding:72px 0;}
-  .trust-strip .wrap{padding:18px 24px;}
+  .trust-strip .wrap{padding:18px 24px;grid-template-columns:1fr 1fr;justify-content:start;gap:14px 28px;}
 }
 @media (max-width:480px){
   .ben-grid, .serv-grid, .cred-grid{grid-template-columns:1fr;}
@@ -444,7 +444,7 @@ footer .bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:20px
     <div class="col"><h4>Contato</h4><p><a href="https://wa.me/5555974005983" target="_blank" rel="noopener">(55) 97400-5983</a></p><p><a href="mailto:laratecsolucoeshospitalares@gmail.com">laratecsolucoeshospitalares@gmail.com</a></p></div>
     <div class="col"><h4>Atendimento</h4><p>Base em Santa Maria — RS</p><p>Atendimento nacional</p></div>
   </div>
-  <div class="wrap bottom"><p>© 2026 <span style="white-space:nowrap;">Lara Tec</span> Manutenção Hospitalar. Todos os direitos reservados.</p></div>
+  <div class="wrap bottom"><p>© 2026 <span style="white-space:nowrap;">Lara Tec</span> <span style="white-space:nowrap;">Manutenção Hospitalar.</span> <span style="white-space:nowrap;">Todos os direitos reservados.</span></p></div>
 </footer>
 
 <a class="wa-float" href="https://wa.me/5555974005983?text=Ol%C3%A1!%20Quero%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
