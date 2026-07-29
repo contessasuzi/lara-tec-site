@@ -88,7 +88,7 @@ header .btn{padding:11px 20px;font-size:.85rem;}
 .badge-inline{display:inline-flex;align-items:center;gap:8px;background:rgba(6,20,18,.5);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.16);padding:8px 8px 8px 16px;border-radius:999px;font-size:.85rem;font-weight:600;}
 .badge-inline .ok{background:rgba(46,240,199,.16);color:var(--accent-2);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;}
 .trust-strip{position:relative;border-top:1px solid rgba(255,255,255,.14);background:rgba(4,14,13,.5);backdrop-filter:blur(6px);}
-.trust-strip .wrap{display:grid;grid-template-columns:repeat(4,auto);gap:14px 40px;justify-content:space-between;padding:22px 28px;background:rgba(4,14,13,.72);}
+.trust-strip .wrap{display:flex;flex-wrap:wrap;gap:16px 48px;padding:22px 28px;background:rgba(4,14,13,.72);}
 .trust-strip .item{display:flex;align-items:center;gap:10px;font-size:.85rem;font-weight:600;color:rgba(255,255,255,.82);}
 .trust-strip .item svg{width:18px;height:18px;color:var(--accent-2);flex:none;}
 
@@ -196,7 +196,7 @@ footer .bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:20px
   .cred-grid div:nth-child(3){border-left:none;}
   footer .wrap{grid-template-columns:1fr;}
   section{padding:72px 0;}
-  .trust-strip .wrap{padding:18px 24px;grid-template-columns:1fr 1fr;justify-content:start;gap:14px 28px;}
+  .trust-strip .wrap{padding:18px 24px;gap:14px 28px;}
 }
 @media (max-width:480px){
   .ben-grid, .serv-grid, .cred-grid{grid-template-columns:1fr;}
@@ -209,6 +209,30 @@ footer .bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:20px
   .brand-text{display:none;}
   .info-list li{grid-template-columns:1fr;gap:2px;}
   section{padding:56px 0;}
+}
+
+.segmentos{background:var(--bg-soft);border-top:1px solid var(--line);}
+.seg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.seg-card{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px 26px;text-align:left;text-decoration:none;color:var(--ink);
+  transition:transform .15s ease, box-shadow .15s ease;display:block;
+}
+.seg-card:hover{transform:translateY(-3px);box-shadow:0 16px 30px -18px rgba(19,36,32,.35);}
+.seg-card svg{width:30px;height:30px;color:var(--teal);margin-bottom:14px;}
+.seg-card h3{font-size:1.05rem;margin-bottom:6px;font-weight:700;}
+.seg-card p{margin:0;font-size:.88rem;text-align:left;color:var(--ink-soft);}
+.seg-card .go{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:.85rem;font-weight:600;color:var(--teal);}
+
+.parceiros{border-top:1px solid var(--line);padding:56px 0;}
+.parceiros .wrap{text-align:center;}
+.parceiros .eyebrow{justify-content:center;}
+.parceiros .eyebrow::before{display:none;}
+.partner-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 32px;margin-top:10px;}
+.partner-row span{font-weight:700;font-size:1rem;color:var(--ink-soft);letter-spacing:.02em;}
+
+@media (max-width:900px){
+  .seg-grid{grid-template-columns:1fr;}
 }
 </style>
 <script type="application/ld+json">
@@ -295,6 +319,36 @@ footer .bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:20px
   </div>
 </section>
 
+
+<section class="segmentos" id="segmentos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Fale com a gente</span>
+      <h2>Qual é o seu negócio?</h2>
+      <p>Fale abaixo com o especialista de acordo com o seu segmento.</p>
+    </div>
+    <div class="seg-grid reveal">
+      <a class="seg-card" href="https://wa.me/5555974005983?text=Ol%C3%A1!%20Sou%20de%20uma%20cl%C3%ADnica%20de%20est%C3%A9tica%20e%20quero%20saber%20mais%20sobre%20manuten%C3%A7%C3%A3o%20de%20equipamentos." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3c2 2 3 4.5 3 7a3 3 0 01-6 0c0-2.5 1-5 3-7z"/><path d="M6 21c0-4 3-6 6-6s6 2 6 6"/></svg>
+        <h3>Clínica de estética</h3>
+        <p>Manutenção de equipamentos de criolipólise, laser, radiofrequência e mais.</p>
+        <span class="go">Falar sobre estética →</span>
+      </a>
+      <a class="seg-card" href="https://wa.me/5555974005983?text=Ol%C3%A1!%20Sou%20de%20um%20hospital%20e%20quero%20saber%20mais%20sobre%20manuten%C3%A7%C3%A3o%20de%20equipamentos." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M12 8v8M8 12h8"/></svg>
+        <h3>Hospital ou clínica</h3>
+        <p>Manutenção de camas, ventiladores, focos cirúrgicos e equipamentos críticos.</p>
+        <span class="go">Falar sobre hospital →</span>
+      </a>
+      <a class="seg-card" href="https://wa.me/5555974005983?text=Ol%C3%A1!%20Sou%20de%20uma%20cl%C3%ADnica%20odontol%C3%B3gica%20e%20quero%20saber%20mais%20sobre%20manuten%C3%A7%C3%A3o%20de%20equipamentos." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 10c0-1.5 1-2.5 2.5-2.5S14 8.5 14 10c0 1.2-.7 1.8-1.4 2.4-.6.5-1.1 1-1.1 1.8"/><circle cx="12.5" cy="16.3" r=".4" fill="currentColor" stroke="none"/></svg>
+        <h3>Clínica odontológica</h3>
+        <p>Manutenção de autoclaves, cadeiras, raio-X e equipamentos do consultório.</p>
+        <span class="go">Falar sobre odontologia →</span>
+      </a>
+    </div>
+  </div>
+</section>
 <section class="story" id="problema">
   <div class="wrap">
     <div class="reveal">
@@ -413,6 +467,16 @@ footer .bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:20px
   <div class="dep-track-wrap"><div class="dep-track" id="depTrack"></div></div>
 </section>
 
+
+<section class="parceiros">
+  <div class="wrap reveal">
+    <span class="eyebrow">Parcerias</span>
+    <h3 style="font-size:1.1rem;margin-bottom:4px;">Autorizada por</h3>
+    <div class="partner-row">
+      <span>MEDEPEJ</span><span>KSS</span><span>RC Móveis</span><span>DENTEMED</span><span>Alphamedic Brasil</span>
+    </div>
+  </div>
+</section>
 <section class="faq" id="faq">
   <div class="wrap">
     <div class="section-head reveal"><span class="eyebrow">Dúvidas frequentes</span><h2>Perguntas que a gente mais recebe</h2></div>
