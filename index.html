@@ -234,6 +234,15 @@ footer .bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:20px
 @media (max-width:900px){
   .seg-grid{grid-template-columns:1fr;}
 }
+
+.partner-ticker-wrap{overflow:hidden;margin-top:18px;-webkit-mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);}
+.partner-ticker{display:flex;align-items:center;gap:28px;width:max-content;}
+.partner-ticker img{height:64px;width:auto;border-radius:10px;border:1px solid var(--line);box-shadow:0 8px 20px -14px rgba(19,36,32,.4);}
+@media (prefers-reduced-motion: no-preference){
+  .partner-ticker{animation:scrollPartners 24s linear infinite;}
+  .partner-ticker-wrap:hover .partner-ticker{animation-play-state:paused;}
+  @keyframes scrollPartners{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"Lara Tec Manutenção Hospitalar","image":"https://www.laratec.com.br/images/logo-header-v2.png","telephone":"+5555974005983","email":"laratecsolucoeshospitalares@gmail.com","priceRange":"$$","address":{"@type":"PostalAddress","addressLocality":"Santa Maria","addressRegion":"RS","addressCountry":"BR"},"areaServed":"Brasil (base em Santa Maria, RS)","description":"Manutenção preventiva e corretiva de equipamentos hospitalares, odontológicos, laboratoriais e de estética, com laudos técnicos e conformidade ANVISA e ABNT.","url":"https://www.laratec.com.br/"}
@@ -472,9 +481,7 @@ footer .bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:20px
   <div class="wrap reveal">
     <span class="eyebrow">Parcerias</span>
     <h3 style="font-size:1.1rem;margin-bottom:4px;">Autorizada por</h3>
-    <div class="partner-row">
-      <span>MEDEPEJ</span><span>KSS</span><span>RC Móveis</span><span>DENTEMED</span><span>Alphamedic Brasil</span>
-    </div>
+<div class="partner-ticker-wrap"><div class="partner-ticker"><img src="images/partner-medpej.png" alt="MEDPEJ" loading="lazy"><img src="images/partner-kss.png" alt="Grupo KSS" loading="lazy"><img src="images/partner-rcmoveis.png" alt="RC Móveis Hospitalares" loading="lazy"><img src="images/partner-dentemed.png" alt="Dentemed" loading="lazy"><img src="images/partner-alphamedic.png" alt="Alphamedic Brasil" loading="lazy"><img src="images/partner-medpej.png" alt="MEDPEJ" loading="lazy"><img src="images/partner-kss.png" alt="Grupo KSS" loading="lazy"><img src="images/partner-rcmoveis.png" alt="RC Móveis Hospitalares" loading="lazy"><img src="images/partner-dentemed.png" alt="Dentemed" loading="lazy"><img src="images/partner-alphamedic.png" alt="Alphamedic Brasil" loading="lazy"></div></div>
   </div>
 </section>
 <section class="faq" id="faq">
