@@ -88,7 +88,7 @@ header .btn{padding:11px 20px;font-size:.85rem;}
 .badge-inline{display:inline-flex;align-items:center;gap:8px;background:rgba(6,20,18,.5);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.16);padding:8px 8px 8px 16px;border-radius:999px;font-size:.85rem;font-weight:600;}
 .badge-inline .ok{background:rgba(46,240,199,.16);color:var(--accent-2);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;}
 .trust-strip{position:relative;border-top:1px solid rgba(255,255,255,.14);background:rgba(4,14,13,.5);backdrop-filter:blur(6px);}
-.trust-strip .wrap{display:flex;flex-wrap:wrap;gap:16px 48px;padding:22px 28px;background:rgba(4,14,13,.72);}
+.trust-strip .wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px 40px;padding:22px 28px;background:rgba(4,14,13,.72);}
 .trust-strip .item{display:flex;align-items:center;gap:10px;font-size:.85rem;font-weight:600;color:rgba(255,255,255,.82);}
 .trust-strip .item svg{width:18px;height:18px;color:var(--accent-2);flex:none;}
 
@@ -142,9 +142,18 @@ section{padding:100px 0;}
 .cred-grid span{font-size:.82rem;color:var(--ink-soft);font-weight:500;}
 
 .depoimentos{background:var(--bg-soft);border-top:1px solid var(--line);}
-.dep-track-wrap{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,black 6%,black 94%,transparent);mask-image:linear-gradient(90deg,transparent,black 6%,black 94%,transparent);margin-top:8px;}
-.dep-track{display:flex;gap:22px;width:max-content;}
-.dep-card{width:300px;flex:none;background:var(--white);border-radius:var(--radius);padding:26px 24px;display:flex;flex-direction:column;gap:14px;box-shadow:0 14px 30px -20px rgba(19,36,32,.3);}
+.dep-track-wrap{overflow:visible;margin-top:8px;padding:20px 0 30px;}
+.dep-track{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;}
+.dep-card{
+  width:280px;flex:none;background:var(--white);border-radius:var(--radius);padding:26px 24px;
+  display:flex;flex-direction:column;gap:14px;box-shadow:0 14px 30px -20px rgba(19,36,32,.3);
+  transform:scale(.9);opacity:.55;filter:blur(1.5px);
+  transition:transform .35s ease, opacity .35s ease, filter .35s ease, box-shadow .35s ease;
+  cursor:default;
+}
+.dep-card.is-center{transform:scale(1.08);opacity:1;filter:blur(0);box-shadow:0 24px 44px -18px rgba(19,36,32,.4);z-index:2;}
+.dep-track:hover .dep-card{transform:scale(.9);opacity:.55;filter:blur(1.5px);box-shadow:0 14px 30px -20px rgba(19,36,32,.3);}
+.dep-track .dep-card:hover{transform:scale(1.1) !important;opacity:1 !important;filter:blur(0) !important;box-shadow:0 26px 48px -16px rgba(19,36,32,.45) !important;z-index:3;}
 .dep-card svg{width:26px;height:26px;color:var(--accent-soft);}
 .dep-card p{margin:0;text-align:left;font-size:.9rem;min-height:56px;}
 .dep-card .who{display:flex;align-items:center;gap:12px;}
@@ -167,11 +176,12 @@ section{padding:100px 0;}
 .cta-final p{color:rgba(255,255,255,.78);max-width:52ch;margin:0 auto 34px;text-align:center;}
 .cta-final .hero-cta{justify-content:center;}
 
-footer{background:var(--white);border-top:1px solid var(--line);padding:56px 0 28px;}
+footer{background:var(--white);border-top:1px solid var(--line);padding:32px 0 20px;}
 footer .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:32px;}
 footer .col h4{font-size:1.05rem;margin:0 0 12px;font-weight:700;}
 footer .col p, footer .col a{font-size:.9rem;color:var(--ink-soft);text-decoration:none;margin:0 0 6px;}
-footer .bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:20px;font-size:.82rem;color:var(--ink-soft);}
+footer .bottom{border-top:1px solid var(--line);margin-top:24px;padding-top:16px;font-size:.82rem;color:var(--ink-soft);}
+footer .bottom p{text-align:left;}
 
 .wa-float{position:fixed;bottom:22px;right:22px;z-index:60;background:#25D366;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 30px -10px rgba(0,0,0,.45);text-decoration:none;}
 .wa-float svg{width:28px;height:28px;fill:#fff;}
@@ -179,9 +189,6 @@ footer .bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:20px
 @media (prefers-reduced-motion: no-preference){
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .65s cubic-bezier(.2,.7,.2,1), transform .65s cubic-bezier(.2,.7,.2,1);}
   .reveal.in{opacity:1;transform:translateY(0);}
-  .dep-track{animation:scrollDep 30s linear infinite;}
-  .dep-track-wrap:hover .dep-track{animation-play-state:paused;}
-  @keyframes scrollDep{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 }
 @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;}}
 
@@ -212,7 +219,7 @@ footer .bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:20px
 }
 
 .segmentos{background:var(--bg-soft);border-top:1px solid var(--line);}
-.seg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.seg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
 .seg-card{
   background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
   padding:30px 26px;text-align:left;text-decoration:none;color:var(--ink);
@@ -232,7 +239,7 @@ footer .bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:20px
 .partner-row span{font-weight:700;font-size:1rem;color:var(--ink-soft);letter-spacing:.02em;}
 
 @media (max-width:900px){
-  .seg-grid{grid-template-columns:1fr;}
+  .seg-grid{grid-template-columns:1fr 1fr;}
 }
 
 .partner-ticker-wrap{overflow:hidden;margin-top:18px;-webkit-mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);}
@@ -332,7 +339,7 @@ footer .bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:20px
 <section class="segmentos" id="segmentos">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Fale com a gente</span>
+      <span class="eyebrow">Entre em contato</span>
       <h2>Qual é o seu negócio?</h2>
       <p>Fale abaixo com o especialista de acordo com o seu segmento.</p>
     </div>
@@ -354,6 +361,12 @@ footer .bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:20px
         <h3>Clínica odontológica</h3>
         <p>Manutenção de autoclaves, cadeiras, raio-X e equipamentos do consultório.</p>
         <span class="go">Falar sobre odontologia →</span>
+      </a>
+      <a class="seg-card" href="https://wa.me/5555974005983?text=Ol%C3%A1!%20Sou%20de%20uma%20cl%C3%ADnica%20veterin%C3%A1ria%20e%20quero%20saber%20mais%20sobre%20manuten%C3%A7%C3%A3o%20de%20equipamentos." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8c0-2 1-3.5 2-3.5S10 6 10 8"/><path d="M14 8c0-2 1-3.5 2-3.5S18 6 18 8"/><path d="M12 21c-3.5 0-6-2.3-6-5.3 0-1.8 1-3 1.8-4.2C8.6 10 9 8.8 9 7.5c1-.6 2-1 3-1s2 .4 3 1c0 1.3.4 2.5 1.2 4 .8 1.2 1.8 2.4 1.8 4.2 0 3-2.5 5.3-6 5.3z"/></svg>
+        <h3>Clínica veterinária</h3>
+        <p>Manutenção de equipamentos para hospitais e clínicas veterinárias.</p>
+        <span class="go">Falar sobre veterinária →</span>
       </a>
     </div>
   </div>
@@ -390,6 +403,7 @@ footer .bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:20px
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Preventiva</b> — inspeção, limpeza e ajustes periódicos para evitar falhas.</span></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Corretiva</b> — diagnóstico preciso e reparo ágil, reduzindo o tempo parado.</span></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Laudos técnicos</b> — calibrações rastreáveis, dentro das normas ANVISA e ABNT.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Instalação de equipamentos</b> — instalação correta desde o início, evitando falhas futuras.</span></li>
       </ul>
     </div>
   </div>
@@ -431,8 +445,9 @@ footer .bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:20px
     <div class="serv-more reveal">
       <span class="eyebrow">Também atendemos</span>
       <div class="chip-row">
-        <span class="chip">Cadeira odontológica</span><span class="chip">Raio-X odontológico</span><span class="chip">Lavadora ultrassônica</span><span class="chip">Termodesinfectora</span><span class="chip">Mesa cirúrgica</span><span class="chip">Cardioversor</span><span class="chip">Eletrobisturi</span><span class="chip">Seladora</span><span class="chip">Câmara de conservação de medicamentos</span>
+        <span class="chip">Cadeira odontológica</span><span class="chip">Raio-X odontológico</span><span class="chip">Fotopolimerizador</span><span class="chip">Lavadora ultrassônica</span><span class="chip">Termodesinfectora</span><span class="chip">Mesa cirúrgica</span><span class="chip">Cardioversor</span><span class="chip">Eletrobisturi</span><span class="chip">Seladora</span><span class="chip">Câmara de conservação de medicamentos</span><span class="chip">Monitor multiparamétrico</span><span class="chip">Bomba de infusão</span><span class="chip">Incubadora neonatal</span><span class="chip">Analisadores bioquímicos e hematológicos</span><span class="chip">Lâmpada de fenda</span><span class="chip">Cadeiras para quimioterapia</span>
       </div>
+      <p style="margin-top:20px;text-align:left;font-size:.92rem;">Não encontrou seu equipamento na lista? <a href="https://wa.me/5555974005983?text=Ol%C3%A1!%20N%C3%A3o%20encontrei%20meu%20equipamento%20na%20lista%2C%20gostaria%20de%20saber%20se%20voc%C3%AAs%20atendem." target="_blank" rel="noopener" style="color:var(--teal);font-weight:600;text-decoration:underline;">Fale conosco</a>.</p>
     </div>
   </div>
 </section>
@@ -447,8 +462,7 @@ footer .bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:20px
       <h3 style="font-size:1.3rem;margin-top:20px;">Marcos Lara</h3>
       <ul class="info-list">
         <li><span class="k">Cargo</span><span class="v">Responsável técnico</span></li>
-        <li><span class="k">Formação</span><span class="v">CTISM — Santa Maria, RS</span></li>
-        <li><span class="k">Atuação</span><span class="v">Técnico biomédico no Hospital Regional de Santa Maria</span></li>
+        <li><span class="k">Formação</span><span class="v">Eletromecânico pela CTISM — UFSM</span></li>
       </ul>
     </div>
   </div>
@@ -486,7 +500,7 @@ footer .bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:20px
 </section>
 <section class="faq" id="faq">
   <div class="wrap">
-    <div class="section-head reveal"><span class="eyebrow">Dúvidas frequentes</span><h2>Perguntas que a gente mais recebe</h2></div>
+    <div class="section-head reveal"><span class="eyebrow">Dúvidas</span><h2>Perguntas frequentes</h2></div>
     <details class="faq-item reveal" open><summary>Vocês atendem fora de Santa Maria?</summary><p>Sim. Nossa base é em Santa Maria (RS), mas atendemos clientes em todo o Brasil, com atendimento programado conforme a localização do equipamento.</p></details>
     <details class="faq-item reveal"><summary>O laudo técnico serve para fiscalização da ANVISA?</summary><p>Sim. Nossos laudos seguem as normas ANVISA e ABNT aplicáveis a cada tipo de equipamento, com rastreabilidade dos resultados.</p></details>
     <details class="faq-item reveal"><summary>Quanto tempo leva uma manutenção corretiva?</summary><p>Depende do equipamento e do problema identificado. Após o diagnóstico, você recebe um prazo claro antes de qualquer serviço ser iniciado.</p></details>
@@ -497,8 +511,8 @@ footer .bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:20px
 <section class="cta-final">
   <div class="glow"></div>
   <div class="wrap">
-    <span class="eyebrow on-dark">Vamos conversar</span>
-    <h2>Vamos manter seu equipamento funcionando?</h2>
+    <span class="eyebrow on-dark">Entre em contato</span>
+    <h2>Garanta que seus equipamentos estejam sempre funcionando</h2>
     <p>Fale agora com a <span style="white-space:nowrap;">Lara Tec</span> e garanta seu orçamento ou visita técnica.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="https://wa.me/5555974005983?text=Ol%C3%A1!%20Quero%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener">Solicitar orçamento →</a>
@@ -523,10 +537,11 @@ footer .bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:20px
 </a>
 
 <script>
-const depData = [1,2,3,4,5,6];
+const depData = [1,2,3,4,5];
 const track = document.getElementById('depTrack');
-const cardHtml = (n) => `<div class="dep-card"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 7c-2.8 0-5 2.2-5 5v5h5v-5H7c0-1.1.9-2 2-2V7zm10 0c-2.8 0-5 2.2-5 5v5h5v-5h-2c0-1.1.9-2 2-2V7z"/></svg><p>Este espaço vai receber o depoimento real de um cliente Lara Tec — em breve.</p><div class="who"><div class="avatar">${String(n).padStart(2,'0')}</div><div><b>Aguardando registro</b><span>Cliente verificado</span></div></div></div>`;
-track.innerHTML = depData.concat(depData).map(cardHtml).join('');
+const centerIdx = 2;
+const cardHtml = (n,i) => `<div class="dep-card${i===centerIdx?' is-center':''}"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 7c-2.8 0-5 2.2-5 5v5h5v-5H7c0-1.1.9-2 2-2V7zm10 0c-2.8 0-5 2.2-5 5v5h5v-5h-2c0-1.1.9-2 2-2V7z"/></svg><p>Este espaço vai receber o depoimento real de um cliente Lara Tec — em breve.</p><div class="who"><div class="avatar">${String(n).padStart(2,'0')}</div><div><b>Aguardando registro</b><span>Cliente verificado</span></div></div></div>`;
+track.innerHTML = depData.map(cardHtml).join('');
 if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const els = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
